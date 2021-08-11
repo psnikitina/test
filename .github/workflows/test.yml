@@ -16,7 +16,7 @@ jobs:
       - name: Run screenshot tests
         uses: cypress-io/github-action@v2
         with:
-          build: npm run serve
+          start: npm run serve
           command: npm run test
 
       - name: Upload artifact
