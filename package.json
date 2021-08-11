@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "serve public -p 8000",
-    "test": "docker run -it -e CYPRESS_baseUrl=$CYPRESS_baseUrl -e CYPRESS_updateSnapshots=$CYPRESS_updateSnapshots --ipc=host -v $PWD:/e2e -w /e2e cypress/included:4.11.0",
+    "test": "cypress run --env ci=true --browser chrome --headless --project tests/",
     "test:ci": "start-server-and-test 'serve' 8000 'npm run test -- run --record --key $CYPRESS_recordKey'"
   },
   "keywords": [
@@ -15,7 +15,7 @@
   "author": "Leonardo Faria",
   "license": "MIT",
   "devDependencies": {
-    "cypress": "^4.11.0",
+    "cypress": "^4.12.1",
     "cypress-image-snapshot": "^3.1.1",
     "serve": "^11.3.2",
     "start-server-and-test": "^1.11.2"
