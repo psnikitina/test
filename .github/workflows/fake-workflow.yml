@@ -1,0 +1,19 @@
+name: Fake workflow
+
+on:
+  pull_request:
+  push:
+    branches:
+      - '!master'
+
+jobs:
+  cy-tests:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Do nothing
+        uses: cypress-io/github-action@v2
+        with:
+          command: echo 'I have done nothing'
